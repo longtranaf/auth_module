@@ -8,8 +8,8 @@ export interface ModuleOptions {
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
-    name: 'my-module',
-    configKey: 'myModule'
+    name: 'auth-module',
+    configKey: 'authModule'
 
   },
   // Default configuration options of the Nuxt module

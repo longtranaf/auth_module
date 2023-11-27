@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
   modules: ['../src/module', '@pinia/nuxt'],
-  myModule: {},
+  authModule: {},
   devtools: { enabled: true },
 })

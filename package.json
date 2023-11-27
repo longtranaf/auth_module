@@ -1,8 +1,8 @@
 {
-  "name": "my-module",
+  "name": "auth-module",
   "version": "1.0.0",
   "description": "My new Nuxt module",
-  "repository": "your-org/my-module",
+  "repository": "longtranaf/auth_module",
   "license": "MIT",
   "type": "module",
   "exports": {
