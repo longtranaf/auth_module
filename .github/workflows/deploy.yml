@@ -19,10 +19,10 @@ jobs:
         node-version: 14
 
     - name: Install Dependencies
-      run: yarn
+      run: npm install
 
     - name: Build Nuxt.js App
-      run: yarn dev:build
+      run: npm run dev:build
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
