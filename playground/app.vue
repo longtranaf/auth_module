@@ -5,7 +5,6 @@
     <input type="button" value="Login" @click="submit">
     <p>{{message}}</p>
   </div>
-  <NuxtPage />
 </template>
 
 <script setup>
@@ -26,3 +25,4 @@ function submit() {
   }
 }
 </script>
+../store/index

@@ -25,7 +25,6 @@ export default defineNuxtModule<ModuleOptions>({
 
     addComponent({
       name: 'loginComponent', // name of the component to be used in vue templates
-      export: 'loginComponent', // (optional) if the component is a named (rather than default) export
       filePath: resolver.resolve('runtime/components/loginComponent.vue')
     })
   }
