@@ -2,10 +2,12 @@ import { defineStore } from 'pinia'
 
 export const useAuthStore = defineStore('counter', {
   state: () => {
-    return { userList : [{
+    return {
+      userList : [{
       username: 'test',
       password: 'test',
-    }]
+    }],
+    ready: false,
   }
   },
   // could also be defined as
@@ -26,9 +28,6 @@ export const useAuthStore = defineStore('counter', {
           console.log('false');
           return false
         }
-      } else {
-        console.log("push");
-        this.userList.push(data)
       }
     }
   },

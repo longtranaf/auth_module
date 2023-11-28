@@ -20,7 +20,7 @@ function submit() {
     password: password.value
   })) {
     message.value = 'Login success'
-    emit('login', username.value)
+    emit('login')
   } else {
     message.value = 'Login failed'
   }
