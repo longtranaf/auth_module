@@ -1,30 +1,31 @@
 <template>
   <div>
-    <form>
-      <div class="container">
-        <label for="uname"><b>Username</b></label>
-        <input
-          type="text"
-          placeholder="Enter Username"
-          v-model="username"
-          required
-        />
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input
+        type="text"
+        placeholder="Enter Username"
+        v-model="username"
+        required
+      />
 
-        <label for="psw"><b>Password</b></label>
-        <input
-          type="password"
-          placeholder="Enter Password"
-          v-model="password"
-          required
-        />
+      <label for="psw"><b>Password</b></label>
+      <input
+        type="password"
+        placeholder="Enter Password"
+        v-model="password"
+        required
+      />
 
-        <button @click="submit">Login</button>
-      </div>
-    </form>
+      <button @click="submit">Login</button>
+    </div>
   </div>
 </template>
 
 <script setup>
+import { useState } from "nuxt/app";
+import { useAuthStore } from "../store";
+const authStore = useAuthStore();
 const username = useState("username", () => "");
 const password = useState("password", () => "");
 const emit = defineEmits(["login"]);
