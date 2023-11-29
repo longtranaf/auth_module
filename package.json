@@ -1,11 +1,7 @@
 {
   "name": "auth-module",
-  "version": "0.0.8",
+  "version": "0.0.1",
   "description": "My new Nuxt module",
-  "repository": "longtranaf/auth_module",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/longtranaf"
-  },
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -46,5 +42,17 @@
     "eslint": "^8.54.0",
     "nuxt": "^3.8.2",
     "vitest": "^0.33.0"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/longtranaf/auth_module.git"
+  },
+  "author": "Long Tran",
+  "bugs": {
+    "url": "https://github.com/longtranaf/auth_module/issues"
+  },
+  "homepage": "https://github.com/longtranaf/auth_module#readme"
 }
