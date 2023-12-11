@@ -1,38 +1,40 @@
 <template>
   <div>
-    <form>
-      <div class="container">
-        <label for="uname"><b>Username</b></label>
-        <input
-          type="text"
-          placeholder="Enter Username"
-          v-model="username"
-          required
-        />
+    <div class="container">
+      <label><b>Username</b></label>
+      <input
+        type="text"
+        placeholder="Enter Username"
+        v-model="username"
+      />
 
-        <label for="psw"><b>Password</b></label>
-        <input
-          type="password"
-          placeholder="Enter Password"
-          v-model="password"
-          required
-        />
+      <label><b>Password</b></label>
+      <input
+        type="password"
+        placeholder="Enter Password"
+        v-model="password"
+      />
 
-        <button @click="submit">Login</button>
-      </div>
-    </form>
+      <button @click="submit">Login</button>
+    </div>
   </div>
 </template>
 
 <script setup>
+import { useState } from "nuxt/app";
+import { useDiaryStore } from "../src/runtime/store";
+const authStore = useDiaryStore();
 const username = useState("username", () => "");
 const password = useState("password", () => "");
 const emit = defineEmits(["login"]);
 function submit() {
-  emit("login", {
+  const isLoginSuccess = useDiaryStore().getAuth({
     username: username.value,
     password: password.value,
-  });
+  })
+  console.log("isLoginSuccess", isLoginSuccess);
+  console.log("isLoginSuccess", isLoginSuccess);
+  emit("login", isLoginSuccess);
 }
 </script>
 

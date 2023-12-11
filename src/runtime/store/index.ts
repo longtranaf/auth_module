@@ -1,13 +1,14 @@
+import { useCookie } from 'nuxt/app';
 import { defineStore,acceptHMRUpdate  } from 'pinia'
 
-export const useAuthStore = defineStore('diary', {
+export const useDiaryStore = defineStore('user', {
   state: () => {
     return {
       userList :
         [
           {
             username: 'test',
-            password: 'test',
+            password: 'test'
           }
         ],
       ready: false,
@@ -41,8 +42,9 @@ export const useAuthStore = defineStore('diary', {
       }
     }
   },
+  persist: true,
 },
 )
 if (import.meta.hot) {
-  import.meta.hot.accept(acceptHMRUpdate(useAuthStore, import.meta.hot))
+  import.meta.hot.accept(acceptHMRUpdate(useDiaryStore, import.meta.hot))
 }

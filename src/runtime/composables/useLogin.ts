@@ -1,5 +1,9 @@
-import { useAuthStore } from "../store"
+import { computed } from "nuxt/dist/app/compat/capi"
+import { useDiaryStore } from "../store"
 
-export const useAuth = (data: any) => {
-  return useAuthStore().getAuth(data)
+export const useAuth = () => {
+  const diaryStore = useDiaryStore()
+  return {
+    isLoginSuccess: computed(() => diaryStore.ready),
+  }
 }

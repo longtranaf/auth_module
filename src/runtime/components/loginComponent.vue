@@ -1,21 +1,11 @@
 <template>
   <div>
     <div class="container">
-      <label for="uname"><b>Username</b></label>
-      <input
-        type="text"
-        placeholder="Enter Username"
-        v-model="username"
-        required
-      />
+      <label><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" v-model="username" />
 
-      <label for="psw"><b>Password</b></label>
-      <input
-        type="password"
-        placeholder="Enter Password"
-        v-model="password"
-        required
-      />
+      <label><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" v-model="password" />
 
       <button @click="submit">Login</button>
     </div>
@@ -24,16 +14,24 @@
 
 <script setup>
 import { useState } from "nuxt/app";
-import { useAuthStore } from "../store";
-const authStore = useAuthStore();
+import { useDiaryStore } from "../store";
+import { useRouter } from "vue-router";
+const router = useRouter();
+const authStore = useDiaryStore();
 const username = useState("username", () => "");
 const password = useState("password", () => "");
-const emit = defineEmits(["login"]);
+const emit = defineEmits(["loginSuccess"]);
 function submit() {
-  emit("login", {
+  const isLoginSuccess = authStore.getAuth({
     username: username.value,
     password: password.value,
   });
+  console.log("isLoginSuccess", isLoginSuccess);
+  if (isLoginSuccess) {
+    const { eventBus } = useNuxtApp();
+    console.log("$eventBus", eventBus);
+    eventBus.emit("loginSuccess", username.value);
+  }
 }
 </script>
 

@@ -14,6 +14,9 @@ export default defineNuxtModule<ModuleOptions>({
   // Default configuration options of the Nuxt module
   defaults: {},
   setup (options, nuxt) {
+    console.log("options", options);
+    console.log("nuxt", nuxt);
+
     const resolver = createResolver(import.meta.url)
     if(options.addPlugin) {
       const runtimeDir  = fileURLToPath(new URL('./runtime', import.meta.url))
@@ -22,7 +25,6 @@ export default defineNuxtModule<ModuleOptions>({
     }
     // Do not add the extension since the `.ts` will be transpiled to `.mjs` after `npm run prepack`
 
-    //add store
     addComponent({
       name: 'loginComponent', // name of the component to be used in vue templates
       filePath: resolver.resolve('runtime/components/loginComponent.vue')
